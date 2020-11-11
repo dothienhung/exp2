@@ -1,16 +1,31 @@
+import math
 
-def compare(x,y):
-    if x <y :
-        if y%2 ==0 :
-            return 1+ compare(x,y/2)
+def compare():
+    x = int(input("Nhap gia gia cua X :"))
+    y = int(input("nhap gia tri cua Y :"))
+    t = math.ceil(math.log2(y/x))
+    count =0
+    while x!=y and t >= 0 :
+        if x*(2**t) >=y :
+            count +=1
+            print(x)
+            break
         else:
-            return  1+ compare(x,y +1)
-    else:
-        return 0
+            x=(x+1)*2
+            print(x)
+            t =math.ceil(math.log2(y/x))
+            count =count +1
+            break
+
+    
+
+compare()
 
 
-result = compare(4,11)
-print("Ket qua là :", result)
+    
+
+
+
 
 
 
