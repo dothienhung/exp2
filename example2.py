@@ -1,25 +1,34 @@
-import math
+
+from math import log2
 
 def compare():
     x = int(input("Nhap gia gia cua X :"))
     y = int(input("nhap gia tri cua Y :"))
-    t = math.ceil(math.log2(y/x))
     count =0
-    while x!=y and t >= 0 :
-        if x*(2**t) >=y :
-            count +=1
-            print(x)
-            break
+
+    while (x != y) :
+        ntemp = y
+        while (x < ntemp) :
+            ntemp = ntemp / 2
+        
+        if (x < ntemp + 1) :
+            x = x * 2;
+            print("phai nha them :*2")
         else:
-            x=(x+1)*2
-            print(x)
-            t =math.ceil(math.log2(y/x))
-            count =count +1
-            break
+            x = x - 1;
+            print("phai tru di -1");
+        
+        count +=1
+    
+    print("Tong so buoc la: " ,count);
+        
+
+compare()
+
 
     
 
-compare()
+  
 
 
     
